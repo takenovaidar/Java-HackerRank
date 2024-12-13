@@ -14,7 +14,6 @@ public class Splitting {
                 validTokens.add(token);
             }
         }
-
         System.out.println(validTokens.size());
 
         for (String token : validTokens) {
