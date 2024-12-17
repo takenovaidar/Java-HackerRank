@@ -6,7 +6,7 @@ public class Pattern_flag {
 
     public static void main(String[] args) {
 
-        String regex = "\\b(\\w+)\\b\\s+\\1\\b";
+        String regex = "\\b(\\w+)\\b(?:\\s+\\b\\1\\b)+";
         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE/* Insert the correct Pattern flag here.*/);
 
         Scanner in = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class Pattern_flag {
 
             // Check for subsequences of input that match the compiled pattern
             while (m.find()) {
-                input = input.replaceAll(regex, "$1");
+                input = input.replaceAll(m.group(0), m.group(1));
             }
 
             // Prints the modified sentence.
