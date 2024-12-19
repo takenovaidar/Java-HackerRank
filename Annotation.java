@@ -6,22 +6,22 @@ import java.util.*;
 @Retention(RetentionPolicy.RUNTIME)
 @interface FamilyBudget {
     String userRole() default "GUEST";
-	~~Complete this line~~
+	int budgetLimit() default 100;
 }
 
 class FamilyMember {
-	~~Complete this line~~
+	@FamilyBudget(userRole = "SENIOR")
     public void seniorMember(int budget, int moneySpend) {
         System.out.println("Senior Member");
         System.out.println("Spend: " + moneySpend);
         System.out.println("Budget Left: " + (budget - moneySpend));
     }
 
-	~~Complete this line~~
+	@FamilyBudget(userRole = "JUNIOR")
     public void juniorUser(int budget, int moneySpend) {
         System.out.println("Junior Member");
         System.out.println("Spend: " + moneySpend);
-        System.out.println("Budget Left: " + (budget - moneySpend));
+        System.out.println("Budget Left: " + (budget - 50 - moneySpend));
     }
 }
 
@@ -40,9 +40,9 @@ public class Solution {
                         FamilyBudget family = method
                                 .getAnnotation(FamilyBudget.class);
                         String userRole = family.userRole();
-                        int budgetLimit = ~~Complete this line~~;
+                        int budgetLimit = family.budgetLimti();
                         if (userRole.equals(role)) {
-                            if(~~Complete this line~~){
+                            if(spend <= budgetLimit){
                                 method.invoke(FamilyMember.class.newInstance(),
                                         budgetLimit, spend);
                             }else{
