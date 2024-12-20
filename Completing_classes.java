@@ -4,21 +4,39 @@ import java.io.InputStreamReader;
 
 //Complete the classes below
 class Flower {
+    String whatsYourName() {
+        return "I have many names and Types.";
 }
 
-class Jasmine {
+class Jasmine extends Flower {
+    @Override 
+    String whatsYourName() {
+        return "Jasmine";
+    }
 }
 
-class Lily {
+class Lily extends Flower {
+    @Override
+    String whatsYourName() {
+        return "Lily";
 }
 
 class Region {
+    Flower yourNationalFlower() {
+        return new Flower();
+    }
 }
 
-class WestBengal {
+class WestBengal extends Region {
+    @Override 
+    Jasmine yourNationalFlower() {
+        return new Jasmine();
 }
 
-class AndhraPradesh {
+class AndhraPradesh extends Region{
+    @Override  
+    Lily youeNationalFlower() {
+        return new Lily();
 }
 
 
