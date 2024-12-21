@@ -9,5 +9,20 @@ public class BigInteger {
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         
+        Scanner scanner = new Scanner(System.in);
+        
+        String num1 = scanner.nextLine();
+        String num2 = scanner.nextLine();
+
+        BigInteger bigNum1 = new BigInteger(num1);
+        BigInteger bigNum2 = new BigInteger(num2);
+
+        BigInteger sum = bigNum1.add(bigNum2);
+        BigInteger product = bigNum1.multiply(bigNum2);
+
+        System.out.println(sum);      
+        System.out.println(product);  
+        
+        scanner.close();
     }
 }
