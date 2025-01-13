@@ -8,6 +8,17 @@ class Add {
     public void add(int... numbers) {
         int sum = 0;
         StringBuilder expression = new StringBuilder();
+        
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+            if (i > 0) {
+                expression.append("+");
+            }
+            expression.append(numbers[i]);
+        }
+        
+        expression.append("=").append(sum);
+        System.out.println(expression);
     }
 }
 
